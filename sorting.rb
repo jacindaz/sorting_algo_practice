@@ -1,4 +1,25 @@
 require 'pry'
+test_array = [6, 3, 20, 12, 10, 2, 100, 99, -45, -20, 30]
+
+def selection_sort(array)
+  sorted_array = []
+
+  array.length.times do
+    minimum_element = array[0]
+
+    array.each do |unsorted_number|
+      if unsorted_number < minimum_element
+        minimum_element = unsorted_number
+      end
+    end
+
+    array.delete(minimum_element)
+    sorted_array << minimum_element
+  end
+
+  sorted_array
+end
+selection_sort(test_array)
 
 def bubble_sort(array)
   max_array_index = array.length - 1
@@ -19,7 +40,6 @@ def bubble_sort(array)
 
   array
 end
-
 # bubble_sort([99, 34, 50, 1000000, 2, -88])
 
 def insertion_sort(array)
@@ -63,6 +83,6 @@ def insertion_sort(array)
 
   sorted_array
 end
-insertion_sort([6, 3, 20, 12, 10, 2, 100, 99, -45, -20, 30])
+# insertion_sort([6, 3, 20, 12, 10, 2, 100, 99, -45, -20, 30])
 
 
