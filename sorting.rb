@@ -1,6 +1,56 @@
 require 'pry'
 test_array = [6, 3, 20, 12, 10, 2, 100, 99, -45, -20, 30]
 
+def merge_sort(array)
+  # Divide the unsorted array of size n, into n arrays of size 1
+  # Note that each array of size 1 is considered sorted
+  # Combine two sorted small arrays into one sorted combined array with the following steps
+  # Create an empty, new array where the combined sorted elements will go
+  # Compare the first elements of each small sorted array
+  # Put the smaller element into the combined sorted array
+  # Repeat step 3b until one small sorted array is empty
+  # Put all of the remaining elements from the non-empty small array into the combined array
+  # Repeat step 3 until there is only one array
+
+  sorted_array = []
+  array_max_index = array.length - 1
+
+  loop_index = 0
+  while loop_index <= array_max_index
+    unsorted_number = array[loop_index]
+
+    if loop_index == array_max_index && array_max_index % 2 == 0
+      sorted_array << [unsorted_number]
+
+    elsif loop_index != array_max_index
+      number1 = unsorted_number
+      number2 = array[loop_index + 1]
+
+      if number1 < number2
+        sorted_array << [number1, number2]
+      elsif number1 > number2
+        sorted_array << [number2, number1]
+      end
+    end
+
+    loop_index += 2
+  end
+
+  puts "original array: #{array}"
+  puts "sorted_array: #{sorted_array}"
+  sorted_array
+end
+merge_sort(test_array)
+
+def bucket_sort(array)
+  # Create empty "buckets" that represent a range (ie. buckets for 1-5, 6-10,10-15 etc)
+  # Scatter: Go over the original array, putting each object in its bucket.
+  # Sort each bucket with a different sorting algorithm
+  # Gather: Append all buckets together for one sorted array
+
+
+end
+
 def selection_sort(array)
   sorted_array = []
 
