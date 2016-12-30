@@ -79,4 +79,33 @@ def binary_search_num_in_list(list, number_to_find):
 
 
 
-binary_search_num_in_list(primes, 29)
+binary_search_num_in_list(primes, 59)
+
+
+# WRITING OUT STEPS
+# [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+# max_index = 24
+# searching for 59
+# array of indexes:
+#   => [12, 18, 15]
+#
+# steps should go:
+#   => index: 24/12 >>> 12
+#   => primes[12], 41
+#   => 59 > 41
+#
+#   => index: (24-12)/2 + 12 >>> 12/2 + 12 >>> 6 + 12 >>> 18
+#   => primes[18], 67
+#   => 59 < 67
+#
+#   => index: (18-12)/2 + 12 >>> 6/2 + 12 >>> 3 + 12 >>> 15
+#   => primes[15], 53
+#   => 59 > 53
+#
+#   => index: (18-15)/2 + 15 >>> 3/2 + 15 >>> 1.5 + 15 >>> 16.5 >>> 17
+#   => primes[17], 61
+#   => 59 < 61
+#
+#   => index: (17-15)/2 + 15 >>> 2/2 + 15 >>> 1 + 15 >>> 16
+#   => primes[16], 59
+#   => BINGO !
