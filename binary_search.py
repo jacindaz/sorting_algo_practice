@@ -90,7 +90,7 @@ binary_search_num_in_list(primes, 59)
 #   => [12, 18, 15]
 #
 # steps should go:
-#   => index: 24/12 >>> 12
+#   => index: (24-0)/2 + 0 >>> 24/12 + 0 >>> 12
 #   => primes[12], 41
 #   => 59 > 41
 #
