@@ -1,4 +1,3 @@
-# binary search practice
 primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
 
 # WHEN TO USE BINARY SEARCH:
@@ -12,11 +11,6 @@ def binary_search_num_in_list(list, number_to_find):
     number_not_found = True
 
     while number_not_found and halfway_index != max_index and halfway_index != min_index:
-        print("\n==============")
-        print("min_index: %s, max_index: %s" % (min_index, max_index))
-        print("halfway_index: %s, halfway index number: %s" % (halfway_index, list[halfway_index]))
-        print("==============\n")
-
         if number_to_find > list[halfway_index]:
             min_index = halfway_index
         elif number_to_find < list[halfway_index]:
