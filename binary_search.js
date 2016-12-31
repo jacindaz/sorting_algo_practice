@@ -2,27 +2,40 @@ var doSearch = function(array, targetValue) {
     var min = 0;
     var max = array.length - 1;
     var guess;
-    while(array[guess] != targetValue){
-        guess = Math.round((max - min)/2) + min;
+    var numGuesses = 0;
+
+    while(max >= min){
+        guess = Math.floor((max + min)/2);
+        numGuesses += 1;
+        console.log("guess: " + guess);
 
         if(array[guess] === targetValue){
-            console.log("Found number! number: " + array[guess] + ", index: " + guess);
+            console.log("total number of guesses: " + numGuesses);
             return guess;
         }
-        else if(targetValue < array[guess]){
-            max = guess;
+        else if(array[guess] < targetValue){
+            min = guess + 1;
         }
         else{
-            min = guess;
+            max = guess - 1;
         }
     }
-    console.log("Poop, did not find number!");
     return -1;
 };
 
 var primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97];
 
-var result = doSearch(primes, 97);
+var result = doSearch(primes, 41);
+println("Found prime at index " + result);
+
+Program.assertEqual(doSearch(primes, 73), 20);
+Program.assertEqual(doSearch(primes, 11), 4);
+Program.assertEqual(doSearch(primes, 97), 24);
+
+
+var primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97];
+
+var result = doSearch(primes, 11);
 // var result = doSearchJacindasWay(primes, 73);
 // console.log("Found prime at index " + result);
 
