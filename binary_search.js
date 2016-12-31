@@ -8,35 +8,16 @@ var doSearch = function(array, targetValue) {
     var numberNotFound = true;
 
     while (numberNotFound == true) {
-        console.log("\n===================");
-        console.log("\nmin: " + min + ", max: " + max);
-        console.log("current_number: " + array[halfway_index] + "");
-
         if (targetValue > array[halfway_index]) {
-            console.log("targetValue > array[halfway_index]\n");
             min = halfway_index;
-
-            console.log("min: " + min + ", max: " + max);
         } else if (targetValue < array[halfway_index]) {
-            console.log("targetValue < array[halfway_index]\n");
             max = halfway_index;
-
-            console.log("min: " + min + ", max: " + max);
         } else if (targetValue == array[halfway_index]) {
             numberNotFound = true;
-            console.log("\n=================")
-            console.log("=================")
-            console.log("Found number!");
-            console.log("index: " + halfway_index + ", number: " + array[halfway_index]);
-            console.log("=================")
-            console.log("=================\n")
-
             return halfway_index;
         }
 
         halfway_index = Math.round((max - min)/2) + min;
-
-        console.log("===================\n")
     }
 
     return -1;
