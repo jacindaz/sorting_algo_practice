@@ -7,12 +7,12 @@ var doSearch = function(array, targetValue) {
 
     var numberNotFound = true;
 
-    while (numberNotFound == true) {
+    while (numberNotFound === true) {
         if (targetValue > array[halfway_index]) {
             min = halfway_index;
         } else if (targetValue < array[halfway_index]) {
             max = halfway_index;
-        } else if (targetValue == array[halfway_index]) {
+        } else if (targetValue === array[halfway_index]) {
             numberNotFound = true;
             return halfway_index;
         }
