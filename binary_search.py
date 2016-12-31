@@ -10,6 +10,15 @@ def binary_search_num_in_list(list, number_to_find):
 
     number_not_found = True
 
+    if number_to_find == list[0]:
+        print("found number! found %s at index: %s" % (number_to_find, 0))
+        number_not_found = False
+        return 0
+    elif number_to_find == list[-1]:
+        print("found number! found %s at index: %s" % (number_to_find, max_index))
+        number_not_found = False
+        return max_index
+
     while number_not_found and halfway_index != max_index and halfway_index != min_index:
         if number_to_find > list[halfway_index]:
             min_index = halfway_index
@@ -17,15 +26,15 @@ def binary_search_num_in_list(list, number_to_find):
             max_index = halfway_index
         elif number_to_find == list[halfway_index]:
             number_not_found = False
-            print("found number!")
-            return True
+            print("found number! found %s at index: %s" % (number_to_find, halfway_index))
+            return halfway_index
 
         halfway_index = int(round((max_index - min_index)/2)) + min_index
 
     print("Did not find number, return False")
     return False
 
-binary_search_num_in_list(primes, 60)
+binary_search_num_in_list(primes, 97)
 
 
 # WRITING OUT STEPS
